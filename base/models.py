@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class Topic(models.Model):
     name = models.CharField(max_length=200)
 
-
     def __str__(self):
         return self.name
     
@@ -21,6 +20,8 @@ class Room(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        ordering = ['-updated', 'created']
 
 
 class Message (models.Model):
